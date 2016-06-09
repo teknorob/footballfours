@@ -1,4 +1,4 @@
-﻿body {
+body {
   background-color: #FFFFFF;
   color: #333333;
 }
@@ -9,6 +9,10 @@ body > .section:first-child {
 
 body > .section:last-child {
   padding-bottom: 10%;
+}
+
+.login{
+  background-color : #808080; 
 }
     
 .matchTime {

@@ -7,15 +7,29 @@ public class User
     @Column
     private String username;
     
+    @Column
+    private String password;
+    
     private boolean authenticated = false;
+            
+    public User()
+    {
+    }
     
     @Column
-    private String password = "password";
-            
-    public User(String password)
+    public boolean isAuthenticated()
     {
-        username = "Admin";
-        authenticate(password);
+        return authenticated;
+    }
+    
+    public void setAuthenticated( boolean authenticated )
+    {
+        this.authenticated = authenticated;
+    }
+
+    public String getPassword()
+    {
+        return password;
     }
     
     public String getUsername()
@@ -23,15 +37,14 @@ public class User
         return username;
     }
 
-    @Column
-    public boolean isAuthenticated()
+    public void setPassword( String password )
     {
-        return authenticated;
+        this.password = password;
     }
 
-    public boolean authenticate(String password)
+    public void setUsername( String username )
     {
-        authenticated = this.password.equals( password );
-        return authenticated;
+        this.username = username;
     }
+
 }

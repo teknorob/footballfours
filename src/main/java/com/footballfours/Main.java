@@ -15,15 +15,26 @@ import org.h2.tools.Server;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.footballfours.core.auth.AuthenticatorSingleton;
 import com.footballfours.core.route.management.RouteManager;
 
 public class Main
 {
     private static final Logger theLogger = LoggerFactory.getLogger( Main.class );
 
+    private static int STATUS_FUCKED = -1;
+    
     public static void main( final String[] args ) throws InstantiationException,
                                                    IllegalAccessException
     {
+        
+        if (args.length != 2 )
+        {
+            theLogger.error( "Must supply two arguments when starting server for administrative credentials.");
+            theLogger.info( "I know I know its shit we'll do something else soon I just dont care right now...");
+            System.exit( STATUS_FUCKED );
+        }
+        
         try
         {
             final URI uri = Main.class.getClassLoader()
@@ -49,6 +60,8 @@ public class Main
             throw new RuntimeException( e );
         }
 
+        AuthenticatorSingleton.initialize( args[0], args[1] );
+        
         final String sqlUsername = "football";
         final String sqlPassword = "fours";
         final String encryptionPassword = "footballfours";

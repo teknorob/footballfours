@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.util.Map;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.footballfours.core.auth.AuthenticatorSingleton;
 import com.footballfours.core.route.RegistrableRoute;
 import com.footballfours.core.user.User;
 import com.j256.ormlite.support.ConnectionSource;
@@ -28,13 +29,17 @@ public class AuthRoute extends RegistrableRoute
         }, getJsonTransformer() );
 
         post( "/login", "application/json", ( request, response ) -> {
-            request.session( true ).attribute( "user", new User( "password" ) );
+            ObjectMapper mapper = new ObjectMapper();
+            User user = mapper.readValue( request.bodyAsBytes(), User.class );
+
+            AuthenticatorSingleton.getInstance().authenticate( user );
+
+            if ( user.isAuthenticated() )
+            {
+                request.session( true ).attribute( "user", user );
+            }
+
             Map<String, Object> page = getNewPageModel( request );
-            
-//            ObjectMapper mapper = new ObjectMapper();
-//            User user = mapper.readValue( request.bodyAsBytes(), User.class );
-            
-            
             return page;
         }, getJsonTransformer() );
 
