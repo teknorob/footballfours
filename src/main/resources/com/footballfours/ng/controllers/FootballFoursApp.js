@@ -21,7 +21,10 @@ FootballFoursApp.config(function($routeProvider) {
 		templateUrl : 'pages/rulessummary.html',
 		pageHeading : 'rules'
 
+	}).otherwise( {
+		templateUrl : '/404.html',
 	});
+	;
 });
 
 FootballFoursApp.run([ '$rootScope', function($rootScope) {
