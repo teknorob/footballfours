@@ -7,9 +7,9 @@ public class User
     @Column
     private String username;
     
-    @Column
     private boolean authenticated = false;
     
+    @Column
     private String password = "password";
             
     public User(String password)
@@ -23,6 +23,7 @@ public class User
         return username;
     }
 
+    @Column
     public boolean isAuthenticated()
     {
         return authenticated;

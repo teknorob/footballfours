@@ -1,4 +1,4 @@
-package com.footballfours.route.rest;
+package com.footballfours.route;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
@@ -6,6 +6,7 @@ import static spark.Spark.post;
 import java.sql.Connection;
 import java.util.Map;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.footballfours.core.route.RegistrableRoute;
 import com.footballfours.core.user.User;
 import com.j256.ormlite.support.ConnectionSource;
@@ -29,6 +30,11 @@ public class AuthRoute extends RegistrableRoute
         post( "/login", "application/json", ( request, response ) -> {
             request.session( true ).attribute( "user", new User( "password" ) );
             Map<String, Object> page = getNewPageModel( request );
+            
+//            ObjectMapper mapper = new ObjectMapper();
+//            User user = mapper.readValue( request.bodyAsBytes(), User.class );
+            
+            
             return page;
         }, getJsonTransformer() );
 
