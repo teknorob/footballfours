@@ -12,7 +12,6 @@ import spark.Request;
 import spark.Response;
 
 import com.footballfours.core.route.RegistrableRoute;
-import com.j256.ormlite.support.ConnectionSource;
 
 public class IndexRoute extends RegistrableRoute
 {

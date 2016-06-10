@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.footballfours.core.JsonTransformer;
-import com.j256.ormlite.support.ConnectionSource;
-
 import spark.Request;
 import spark.Response;
 import spark.Route;

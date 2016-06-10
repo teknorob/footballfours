@@ -17,7 +17,6 @@ import spark.Response;
 import spark.utils.IOUtils;
 
 import com.footballfours.core.route.RegistrableRoute;
-import com.j256.ormlite.support.ConnectionSource;
 
 public class StaticContentRoute extends RegistrableRoute
 {

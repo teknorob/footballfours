@@ -10,7 +10,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.footballfours.core.auth.AuthenticatorSingleton;
 import com.footballfours.core.route.RegistrableRoute;
 import com.footballfours.core.user.User;
-import com.j256.ormlite.support.ConnectionSource;
 
 public class AuthRoute extends RegistrableRoute
 {

@@ -10,7 +10,6 @@ import org.reflections.Reflections;
 
 import com.footballfours.core.route.RegistrableRoute;
 import com.footballfours.route.StaticContentRoute;
-import com.j256.ormlite.support.ConnectionSource;
 
 public class RouteManager
 {

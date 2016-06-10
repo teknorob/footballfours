@@ -11,7 +11,6 @@ import java.util.Map;
 import com.footballfours.core.route.RegistrableRoute;
 import com.footballfours.model.fixture.Round;
 import com.footballfours.model.fixture.builder.FixturesModelBuilder;
-import com.j256.ormlite.support.ConnectionSource;
 
 public class RoundsRestRoute extends RegistrableRoute
 {
